@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yesu Akash</title>
+    <style>
+        #container{
+            max-width: 800px;
+            margin: 50px auto;
+            border: 5px solid rebeccapurple;
+            border-radius: 10px;
+            box-shadow: 10px;
+        }
+        #h1{
+            text-align: center;
+            color: green;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        #true{
+            margin-right: 10px;
+            margin-left: 10px;
+            display: flex;
+            flex-direction:column;
+            row-gap: 10px;
+        
+        }
+        li{
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 0 rgpa(0,0,0,1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+         ul{
+            list-style: none;
+            padding: 0;
+        }
+        #q{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color:black;
+        }
+        .but{
+            height: 25px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+        .but:hover{
+            opacity: 0.7;
+
+        }
+        .but:active{
+            opacity: 0.5;
+
+        }
+        #a{
+            height: 25px;
+            border-radius: 10px;
+            background-color: wheat;
+            color: rebeccapurple;
+            padding-left: 10px;
+            border:2px solid red;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #b{
+            height: 25px;
+            border-radius: 10px;
+            background-color: wheat;
+            color: rebeccapurple;
+            padding-left: 10px;
+            border:2px solid red;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #st{
+            color: rgb(16, 0, 37);
+        }
+        .arun{
+            background-color: aqua;
+            border: none;
+            border-radius: 10px;
+            height: 25px;
+            cursor: pointer;
+        }
+        .arun:hover{
+            opacity:0.7;
+        }
+        .arun:active{
+            opacity: 0.5;
+        }
+        </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="h1">Student Attendance</h1>
+        <form id="true">
+            <label id="q" for="a">Name:</label>
+            <input type="text" id="a" required>
+            <label id="q" for="b">Roll No:</label>
+            <input type="text"  id="b" required>
+            <button class="but" type="button" onclick="akash()">Add Student</button>
+          </form>
+          <ul id="st"></ul>
+    </div>
+    <script>
+        function akash(){
+            var a=document.getElementById('a').value;
+            var b=document.getElementById('b').value;
+            if(a&&b){
+                var st=document.getElementById('st');
+                var sli=document.createElement('li');
+                sli.innerHTML=`
+                <span>Name:${a}\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Roll No:${b}</span>
+                <button class="arun"  onclick="attendance('${a}','${b}')">Mark Attendance</button>`;
+                st.appendChild(sli);
+                document.getElementById('a').value='';
+                document.getElementById('b').value='';
+            }
+            else{
+                alert('Please Enter Both Name and Roll Number');
+            }
+        }
+         function attendance(a,b){
+            alert(`Attendance marked for Name:${a}\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0Roll No:${b}`);
+         }
+    </script>
+</body>
+</html>
